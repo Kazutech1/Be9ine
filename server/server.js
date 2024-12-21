@@ -45,8 +45,5 @@ app.get('/', (req, res) => {
   res.json({ message: "API is running smoothly!" });
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`API is running on port ${PORT}`);
-});
+// Export the server handler for Vercel
+export default app;

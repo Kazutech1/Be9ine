@@ -12,3 +12,4 @@ clients/build/
 
 # MacOS
 .DS_Store
+.vercel
