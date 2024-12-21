@@ -20,7 +20,7 @@ const app = express();
 
 
 app.use(cors({ 
-  origin: 'https://be9ine-8nx3.vercel.app//', // Allow requests from this origin
+  origin: 'https://be9ine-kazutos-projects-2eff7a65.vercel.app/', // Allow requests from this origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow these HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
 }));
