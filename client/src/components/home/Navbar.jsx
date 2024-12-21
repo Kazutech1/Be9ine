@@ -15,7 +15,7 @@ const Navbar = () => {
           to="/login"
           className="btn btn-primary normal-case text-lg rounded-lg px-4"
         >
-          Log xdtcfhkjIn
+          Log In
         </Link>
       </div>
     </nav>
