@@ -40,8 +40,13 @@ app.use("/api/investments", investmentPlanRoutes);
 app.use("/api/referral", referralRoutes);
 app.use("/api/admin", adminRoutes);
 
-const PORT = process.env.PORT || 5000;
+// Add a "health check" route to confirm the API is running
+app.get('/', (req, res) => {
+  res.json({ message: "API is running smoothly!" });
+});
 
+// Start the server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`API is running on port ${PORT}`);
 });
