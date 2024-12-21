@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+
+# React build output (client)
+clients/build/
+
+# Environment variables (should be ignored)
+.env
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
