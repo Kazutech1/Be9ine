@@ -17,16 +17,19 @@ connectDb();
 
 const app = express();
 
-// CORS configuration
+// CORS configuration to allow all origins
 app.use(cors({
-  origin: 'https://be9ine-kazutos-projects-2eff7a65.vercel.app', // Correct URL without trailing slash
+  origin: '*', // Allow requests from any origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // If you need to send cookies or other credentials
+  credentials: true, // Allow credentials (cookies, authorization headers)
 }));
 
 app.use(express.json());
 app.use(cookieParser()); // Middleware to parse cookies
+
+// Handle preflight requests
+app.options('*', cors());
 
 // Routes
 app.use("/api/profile", profileRoutes);
