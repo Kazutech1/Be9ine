@@ -25,13 +25,12 @@ const PaymentCard = ({ address, onDeposit, onPaymentSuccess }) => {
       <h3 className="text-xl font-semibold text-green-500 mb-4">Make a Payment</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="text-gray-400">Payment Method</label>
+          <label className="text-gray-400">Payment Method (Make sure you send the correct Token)</label>
           <select
             className="w-full p-3 mt-2 bg-gray-700 text-white rounded-md"
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value)}
           >
-            <option value="TRX">TRX</option>
             <option value="USDT">USDT</option>
           </select>
         </div>

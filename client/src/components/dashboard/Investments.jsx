@@ -77,26 +77,7 @@ const Investments = ({ investments }) => {
           <span className="text-gray-400">Projected Earnings:</span>
           <span className="text-white text-lg font-semibold"> {investments.projectedEarnings}</span>
         </div>
-
-        {/* Investment History */}
-        <div className="bg-gray-700 p-4 rounded-lg mt-4">
-          <h4 className="text-green-500 text-lg font-semibold mb-3">Investment History</h4>
-          <ul className="space-y-2">
-            <li className="flex justify-between">
-              <span className="text-gray-400">Trade #1:</span>
-              <span className="text-white">+ $200.00</span>
-            </li>
-            <li className="flex justify-between">
-              <span className="text-gray-400">Trade #2:</span>
-              <span className="text-white">+ $300.00</span>
-            </li>
-            <li className="flex justify-between">
-              <span className="text-gray-400">Trade #3:</span>
-              <span className="text-white">+ $500.00</span>
-            </li>
-          </ul>
-        </div>
-
+        
         {/* Chart - Returns Over Time */}
         <div className="mt-6">
           <h4 className="text-green-500 text-lg font-semibold mb-3">Returns Over Time</h4>

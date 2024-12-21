@@ -175,3 +175,48 @@ export const getCurrentPlan = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch current plan", error: error.message });
   }
 };
+
+
+
+// Get Completed Plans
+export const getCompletedPlans = async (req, res) => {
+  const userId = req.user.id; // Assuming user is authenticated
+  const userRole = req.user.role; // Assuming role is available in the user object
+
+  try {
+    if (userRole === "admin") {
+      // If admin, fetch all users' completed plans
+      const users = await User.find({}, "name email completedPlans"); // Select only required fields
+
+      const completedPlans = users.map((user) => ({
+        userName: user.name,
+        userEmail: user.email,
+        completedPlans: user.completedPlans,
+      }));
+
+      return res.status(200).json({
+        message: "Completed plans for all users",
+        completedPlans,
+      });
+    } else {
+      // If user, fetch only their completed plans
+      const user = await User.findById(userId);
+
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      if (user.completedPlans.length === 0) {
+        return res.status(200).json({ message: "No completed plans" });
+      }
+
+      return res.status(200).json({
+        message: "Completed plans retrieved successfully",
+        completedPlans: user.completedPlans,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to fetch completed plans", error: error.message });
+  }
+};

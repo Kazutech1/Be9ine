@@ -59,9 +59,7 @@ const InvestmentPlans = () => {
       console.log("Purchased Plan Details:", updatedPlan);
     } catch (err) {
       console.error(err);
-      setModalMessage("There was an error processing your purchase.");
-      setModalType("error");
-      setIsModalOpen(true);
+     
     }
   };
 

@@ -76,29 +76,7 @@ const UserDet = () => {
       </div>
 
       {/* Completed Plans */}
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold text-gray-300 mb-3">Completed Plans</h3>
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-gray-800 border border-gray-700 rounded-lg shadow-sm">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 text-left text-gray-400 font-semibold border-b border-gray-700">
-                  Plan Name
-                </th>
-                <th className="px-4 py-2 text-left text-gray-400 font-semibold border-b border-gray-700">
-                  Invested Amount
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-4 py-2 border-b border-gray-700 text-gray-300">Trx Investment2</td>
-                <td className="px-4 py-2 border-b border-gray-700 text-gray-300">$100</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    
 
       {/* Timestamps */}
       <div className="text-sm text-gray-400">
