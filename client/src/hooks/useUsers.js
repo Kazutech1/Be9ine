@@ -20,7 +20,7 @@ const useUsers = () => {
       setLoading(true);
       setError(""); // Reset error
 
-      const response = await axios.get("http://localhost:5000/api/admin/users", {
+      const response = await axios.get("/api/admin/users", {
         headers: getAuthHeaders(),
       });
 
@@ -35,7 +35,7 @@ const useUsers = () => {
   // Delete user
   const deleteUser = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/admin/users/${id}`, {
+      const response = await axios.delete(`/api/admin/users/${id}`, {
         headers: getAuthHeaders(),
       });
 

@@ -30,7 +30,7 @@ const useDashboard = () => {
       setProfileLoading(true);
       setError(""); // Reset error
 
-      const response = await axios.get("http://localhost:5000/api/profile", {
+      const response = await axios.get("/api/profile", {
         headers: getAuthHeaders(),
       });
 
@@ -48,7 +48,7 @@ const useDashboard = () => {
       setLoading(true);
       setError("");
 
-      const response = await axios.get("http://localhost:5000/api/user/current", {
+      const response = await axios.get("/api/user/current", {
         headers: getAuthHeaders(),
       });
 
@@ -66,7 +66,7 @@ const useDashboard = () => {
       setReferralLoading(true);
       setError("");
 
-      const response = await axios.get("http://localhost:5000/api/referral", {
+      const response = await axios.get("/api/referral", {
         headers: getAuthHeaders(),
       });
 
@@ -89,7 +89,7 @@ const useDashboard = () => {
       setError("");
 
       const response = await axios.put(
-        "http://localhost:5000/api/profile",
+        "/api/profile",
         updatedData,
         {
           headers: getAuthHeaders(),

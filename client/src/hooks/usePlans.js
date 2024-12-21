@@ -10,7 +10,7 @@ const useInvestmentPlans = () => {
   const fetchInvestmentPlans = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/investments");
+      const response = await axios.get("/api/investments");
       setInvestmentPlans(response.data); // Assuming the API returns an array of plans
     } catch (err) {
       setError("Failed to load investment plans");
@@ -26,7 +26,7 @@ const useInvestmentPlans = () => {
       const userData = JSON.parse(localStorage.getItem("chat-user"));
     const token = userData?.token;
       const response = await axios.post(
-        "http://localhost:5000/api/user/buy-plan",
+        "/api/user/buy-plan",
         { planId,   investedAmount},
         {
           headers: {
