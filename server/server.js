@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
 import cookieParser from "cookie-parser";
 import connectDb from "./db/connecctDb.js";
 import authRoutes from './routes/authRoutes.js';
@@ -25,6 +26,8 @@ app.use(cors({
   credentials: true, // Allow credentials (cookies, authorization headers)
 }));
 
+const __dirname = path.resolve();
+
 app.use(express.json());
 app.use(cookieParser()); // Middleware to parse cookies
 
@@ -40,9 +43,22 @@ app.use("/api/investments", investmentPlanRoutes);
 app.use("/api/referral", referralRoutes);
 app.use("/api/admin", adminRoutes);
 
-// Add a "health check" route to confirm the API is running
-app.get('/', (req, res) => {
-  res.json({ message: "API is running smoothly!" });
+app.use(express.static(path.join(__dirname, "client", "dist")));
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
+
+// Health check route
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "API is running" });
+});
+
+// Listen on the port from the .env file
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 // Export the server handler for Vercel
