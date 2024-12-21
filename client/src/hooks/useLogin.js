@@ -17,7 +17,7 @@ const useLogin = () => {
     }
 
     try {
-      const res = await fetch("https://be9ine-8nx3-9vgb3847e-kazutos-projects-2eff7a65.vercel.app/api/auth/login", {
+      const res = await fetch("https://be9ine-8nx3-75rar0e1q-kazutos-projects-2eff7a65.vercel.app/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
