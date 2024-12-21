@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
-  "scripts": {
-    "server": "nodemon server/server.js"
-  },
+ "scripts": {
+  "server": "nodemon server/server.js",
+  "start": "node server/server.js", 
+  "vercel-build": "npm run build" 
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
