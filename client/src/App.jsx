@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./contexts/AuthContext";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
@@ -16,11 +17,36 @@ import UserList from "./pages/AdminUsers";
 import AddPlan from "./pages/AddPlans";
 import WithdrawalRequests from "./pages/GetWithdrawals";
 import UserDet from "./components/dashboard/UserDet";
+import AppLogo from "./assets/react.svg"; // Example SVG logo import
 
 function App() {
   const { authUser } = useAuthContext(); // Get authentication status
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
+
+  // Dynamic title based on route
+  const getTitle = () => {
+    switch (location.pathname) {
+      case "/":
+        return "Home - Be 9ine";
+      case "/signup":
+        return "Sign Up - Be 9ine";
+      case "/login":
+        return "Login - Be 9ine";
+      case "/dash":
+        return "Dashboard - Be 9ine";
+      case "/plans":
+        return "Investment Plans - Be 9ine";
+      case "/deposit":
+        return "Deposit - Be 9ine";
+      case "/withdrawal":
+        return "Withdrawal - Be 9ine";
+      case "/history":
+        return "History - Be 9ine";
+      default:
+        return "Be 9ine";
+    }
+  };
 
   // Check if the sidebar should be shown (only for authenticated users)
   const routesWithoutSidebar = ["/", "/login", "/signup"];
@@ -33,6 +59,11 @@ function App() {
 
   return (
     <div className="flex h-screen bg-gray-800 text-white">
+      {/* Dynamic Title */}
+      <Helmet>
+        <title>{getTitle()}</title>
+      </Helmet>
+
       {/* Sidebar is visible only for authenticated users */}
       {shouldShowSidebar && (
         <>
@@ -80,6 +111,7 @@ function App() {
             : "ml-0"
         } lg:ml-0`} // Always show sidebar on large screens
       >
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
