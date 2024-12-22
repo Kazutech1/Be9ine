@@ -20,12 +20,6 @@ const Referrals = ({ referrals }) => {
           <span className="text-gray-400">Referral Code:</span>
           <span className="text-white">{referralData.referralCode || "N/A"}</span>
         </div>
-        <div className="flex justify-between">
-          <span className="text-gray-400">Referral Link:</span>
-          <span className="text-white">
-            {`www.example.com/referral/${referralData.referralCode || "N/A"}`}
-          </span>
-        </div>
 
         <div className="flex justify-between">
           <span className="text-gray-400">Referred By:</span>
@@ -34,10 +28,6 @@ const Referrals = ({ referrals }) => {
         <div className="flex justify-between">
           <span className="text-gray-400">People Referred:</span>
           <span className="text-white">{referredUsers?.length || 0}</span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-gray-400">Referral Bonus:</span>
-          <span className="text-white">$200.00</span>
         </div>
       </div>
     </div>
